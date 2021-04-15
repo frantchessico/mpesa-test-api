@@ -1,26 +1,26 @@
-// const Vonage = require('@vonage/server-sdk')
+const Vonage = require('@vonage/server-sdk')
 
-// const vonage = new Vonage({
-//   apiKey: "d8c79447",
-//   apiSecret: "kEZ1i4VLLAwnaVAm"
-// })
+const vonage = new Vonage({
+  apiKey: process.env.NEXMO_API_KEY,
+  apiSecret: process.env.NEXMO_API_SECREET
+})
 
 
-// const from = "SavanaPoint"
-// const to = "258849350920"
-// const text = 'SavanaPoint Is new Startup'
+const from = "SavanaPoint"
+const to = "258849350920"
+const text = 'SavanaPoint Is new Startup'
 
-// vonage.message.sendSms(from, to, text, (err, responseData) => {
-//     if (err) {
-//         console.log(err);
-//     } else {
-//         if(responseData.messages[0]['status'] === "0") {
-//             console.log("Message sent successfully.");
-//         } else {
-//             console.log(`Message failed with error: ${responseData.messages[0]['error-text']}`);
-//         }
-//     }
-// })
+vonage.message.sendSms(from, to, text, (err, responseData) => {
+    if (err) {
+        console.log(err);
+    } else {
+        if(responseData.messages[0]['status'] === "0") {
+            console.log("Message sent successfully.");
+        } else {
+            console.log(`Message failed with error: ${responseData.messages[0]['error-text']}`);
+        }
+    }
+})
 
 const dotenv = require('dotenv')
 dotenv.config()
